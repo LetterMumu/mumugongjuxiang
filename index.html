@@ -1,0 +1,387 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #1A355B;
+        }
+
+        body {
+            overflow: hidden;
+            height: 100%;
+        }
+
+        h2 {
+            color: #091A32;
+        }
+
+        h2>.label {
+            background-color: #152B4D;
+            color: #091A32;
+            padding: 5px;
+            font-size: 28px;
+            line-height: 28px;
+        }
+
+        .nav-tabs {
+            border: none;
+        }
+
+        .nav-tabs>li.active>a,
+        .nav-tabs>li.active>a:focus,
+        .nav-tabs>li.active>a:hover {
+            color: #ffffff;
+            cursor: default;
+            background-color: #091A32;
+            border: 1px solid #091A32;
+            border-radius: 5px;
+            border-bottom-color: transparent;
+        }
+
+        .nav-tabs>li>a:hover {
+            border: 1px solid #808080;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="container">
+        <div class="row">
+            <h2 class="col-xs-12"><span class="label label-default">MUMU</span>工具箱</h2>
+            <ul class="nav nav-tabs nav-stacked col-md-2" role="tablist">
+                <li role="presentation" class="active"><a href="#html" aria-controls="html" role="tab"
+                        data-toggle="tab">HTML</a></li>
+                <li role="presentation"><a href="#css" aria-controls="css" role="tab" data-toggle="tab">CSS</a></li>
+                <li role="presentation"><a href="#javascript" aria-controls="javascript" role="tab"
+                        data-toggle="tab">javascript</a></li>
+                <li role="presentation"><a href="#Webpack" aria-controls="Webpack" role="tab"
+                        data-toggle="tab">Webpack</a>
+                </li>
+            </ul>
+
+            <div class="tab-content col-md-10" style="height:85vh;overflow:auto">
+                <div role="tabpanel" class="tab-pane active" id="html">
+                </div>
+                <div role="tabpanel" class="tab-pane container" style="width: 100%" id="css">
+                    <div class="alert alert-success" role="alert">
+                        <h3>文字的水平垂直居中
+                            <hr>
+                        </h3>
+                        <span>
+                            line-height:设置为盒子高度;<br />
+                            text-align:center;
+                        </span>
+                    </div>
+                    <div class="alert alert-info" role="alert">
+                        <h3>垂直居中一个元素
+                            <hr>
+                        </h3>
+                        <span>
+                            <h5>(1)</h5>
+                            position:absolute;<br>
+                            top:50%;<br>
+                            left:50%;<br>
+                            margin-left:宽度一半;<br>
+                            margin-top:高度一半;<br>
+                        </span>
+                        <br>
+                        <span>
+                            <h5>(2)</h5>
+                            position:absolute;<br>
+                            left: 0;<br>
+                            top: 0;<br>
+                            right: 0; <br>
+                            bottom: 0;<br>
+                            margin:auto; <br>
+                        </span>
+                        <br>
+                        <span>
+                            <h5>(3)(指定给父元素)</h5>
+                            display:flex;<br>
+                            justify-content:center; <br>
+                            align-items:center;<br>
+                        </span>
+                        <br>
+                        <span>
+                            <h5>(4)(图片)</h5>
+                            display:table-cell;<br>
+                            text-align:center; <br>
+                            vertical-align:middle;<br>
+                        </span>
+                    </div>
+                    <div class="alert alert-warning" role="alert">
+                        <h3>解决高度塌陷及外边距重叠</h3>
+                        <span>
+                            .clearfix{<br>
+                            zoom: 1;<br>
+                            }<br>
+                            .clearfix:before,.clearfix::after{<br>
+                            content: "";<br>
+                            display: table;<br>
+                            clear: both;<br>
+                            }
+                        </span>
+                    </div>
+                    <div class="alert alert-danger" role="alert">...</div>
+                    <div class="alert alert-success" role="alert">...</div>
+                    <div class="alert alert-info" role="alert">...</div>
+                    <div class="alert alert-warning" role="alert">...</div>
+                    <div class="alert alert-danger" role="alert">...</div>
+
+                </div>
+                <div role="tabpanel" class="tab-pane" id="javascript">
+                    <div class="alert alert-success" role="alert">
+                        <h3>阻止默认行为</h3>
+                        <hr>
+                        <span>
+                            <h5>(1)JavaScript方式</h5>
+                            document.选中选择器.addEventListener('click', function (event) {<br>
+                            event = event || window.event；<br>
+                            if (event.preventDefault){<br>
+                            event.preventDefault();<br>
+                            } else{<br>
+                            event.returnValue = false;<br>
+                            }<br>
+                            }, false);<br>
+                        </span>
+                        <br>
+                        <span>
+                            <h5>(2)jQuery方式</h5>
+                            $('选择器').on('click', function (event) {<br>
+                            event.preventDefault();<br>
+                            });
+                        </span>
+                    </div>
+                    <div class="alert alert-info" role="alert">
+                        <h3>获得/失去焦点</h3>
+                        <hr>
+                        <span>
+                            <h5>(1)JavaScript方式</h5>
+                            var oIpt = document.选中选择器;<br>
+                            if(oIpt.value == "..."){<br>
+                            ...<br>
+                            }else{<br>
+                            ...<br>
+                            };<br>
+                            oIpt.onfocus = function(){//获得焦点<br>
+                            if(this.value == "..."){<br>
+                            this.value="";<br>
+                            ...;<br>
+                            }else{<br>
+                            ...<br>
+                            }<br>
+                            };<br>
+                            oIpt.onblur = function(){//失去焦点<br>
+                            if(this.value == ""){<br>
+                            ...<br>
+                            }<br>
+                            };<br>
+                        </span>
+                        <br>
+                        <span>
+                            <h5>(2)jQuery方式</h5>
+                            $("选择器").focus(function() {//获得焦点<br>
+                            var text_value=$(this).val();<br>
+                            if (text_value =='...') {<br>
+                            $("选择器1").hide();<br>
+                            $("选择器2").show().focus(function);<br>
+                            }<br>
+                            });<br>
+                            $("选择器").blur(function() {//失去焦点<br>
+                            var text_value = $(this).val();<br>
+                            if (text_value == "") {<br>
+                            $("选择器1").show();<br>
+                            $("选择器2").hide();<br>
+                            }<br>
+                            });<br>
+                        </span>
+                    </div>
+                    <div class="alert alert-warning" role="alert">
+                        <h3>深度克隆</h3>
+                        <hr>
+                        <span>
+                            <h5>(1)万能克隆</h5>
+                              function getObjClass(obj) {//检查数据类型<br>
+                                let result = Object.prototype.toString.call(obj).slice(8, -1);<br>
+                                if(result === 'Null'){<br>
+                                  return 'Null';<br>
+                                }else if(result === 'Undefined'){<br>
+                                  return 'Undefined';<br>
+                                }else {<br>
+                                  return result;<br>
+                                }<br>
+                              }<br>
+                            <br>
+                              function deepClone(obj) {//深度克隆<br>
+                                let result, objClass = getObjClass(obj);<br>
+                                if(objClass === 'Object'){<br>
+                                  result = {};<br>
+                                }else if(objClass === 'Array'){<br>
+                                  result = [];<br>
+                                }else {<br>
+                                  return obj; // 如果是其他数据类型不复制，直接将数据返回<br>
+                                }<br>
+                                // 遍历目标对象<br>
+                                for(let key in obj){<br>
+                                  let value = obj[key];<br>
+                                  if(getObjClass(value) === "Object" || 'Array'){<br>
+                                    result[key] = deepClone(value);<br>
+                                  }else {<br>
+                                    result[key] = obj[key];<br>
+                                  }<br>
+                                }<br>
+                                return result;<br>
+                              }<br>
+                            <br>
+                            <h5>(2)简易版（不能处理函数数据）</h5>
+                            arr1/obj1=JSON.parse(JSON.stringify(arr/obj));
+                        </span>
+                    </div>
+                    <div class="alert alert-danger" role="alert">...</div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="Webpack">
+                    <div class="alert alert-success" role="alert">
+                        <h3>初探</h3>
+                        <hr>
+                        <span>
+                            <h5>(1)设置入口文件</h5>
+                            入口.js<br>
+                            <br>
+                            <h5>(2)配置文件</h5>
+                            webpack.config.js //是一个node模块，返回一个 json 格式的配置信息对象<br>
+                            <br>
+                            <h5>(3)初始化项目</h5>
+                            生成package.json文件<br>
+                            {<br>
+                            "name": "webpack_test",<br>
+                            "version": "版本号"<br>
+                            } <br>
+                            <br>
+                            <h5>(4)安装webpack</h5>
+                            npm install webpack -g //全局安装<br>
+                            npm install webpack --save-dev //局部安装<br>
+                            <br>
+                        </span>
+                    </div>
+                    <div class="alert alert-info" role="alert">
+                        <h3>webpack配置文件</h3>
+                        <br>
+                        <h5>(1)创建webpack.config.js</h5>
+                        const path = require('path'); //path内置的模块，用来设置路径。<br>
+                        module.exports = {<br>
+                        entry: './src/js/entry.js', // 入口文件<br>
+                        output: { // 输出配置<br>
+                        filename: 'bundle.js', // 输出文件名<br>
+                        path: path.resolve(__dirname, 'dist') //输出文件路径配置<br>
+                        }<br>
+                        };<br>
+                        <br>
+                        <h5>(2)配置npm命令: package.json</h5>
+                        "scripts": {<br>
+                        "build": "webpack"<br>
+                        },<br>
+                        <br>
+                        <h5>(3)打包应用</h5>
+                        npm run build<br>
+                        <span></span>
+                    </div>
+                    <div class="alert alert-warning" role="alert">
+                        <h3>打包css和图片文件</h3>
+                        <hr>
+                        <span>
+                            <h5>(1)安装样式的loader</h5>
+                            npm install css-loader style-loader --save-dev<br>
+                            npm install file-loader url-loader --save-dev<br>
+                            //url-loader是对象file-loader的上层封装，使用时需配合file-loader使用<br>
+                            <br>
+                            <h5>(2)配置loader(在webpack.config.js中于output同级)</h5>
+                            module: {<br>
+                            rules: [<br>
+                            {<br>
+                            test: /\.css$/,<br>
+                            use: [<br>
+                            'style-loader',<br>
+                            'css-loader'<br>
+                            ]<br>
+                            },<br>
+                            {<br>
+                            test: /\.(png|jpg|gif)$/,<br>
+                            use: [<br>
+                            {<br>
+                            loader: 'url-loader',<br>
+                            options: {<br>
+                            limit: 8192 //小 <br>
+                            }<br>
+                            }<br>
+                            ]<br>
+                            }<br>
+                            ]<br>
+                            }<br>
+                        </span>
+                    </div>
+                    <div class="alert alert-danger" role="alert">
+                        <h3>自动编译打包</h3>
+                        <span>
+                            <h5>(1)下载</h5>
+                            npm install --save-dev webpack-dev-server<br>
+                            <br>
+                            <h5>(2)webpack配置</h5>
+                            devServer: {<br>
+                            contentBase: './dist'<br>
+                            },<br>
+                            <br>
+                            <h5>(3)package配置</h5>
+                            "start": "webpack-dev-server --open"<br>
+                            <h5>(4)编译打包应用并运行</h5>
+                            npm start<br>
+                        </span>
+                    </div>
+                    <div class="alert alert-success" role="alert">
+                        <h3>使用webpack插件</h3>
+                        <hr>
+                        <span>
+                            <h5>(1)常用的插件</h5>
+                            使用html-webpack-plugin根据模板html生成引入script的页面<br>
+                            使用clean-webpack-plugin清除dist文件夹<br>
+                            <br>
+                            <h5>(2)下载</h5>
+                            npm install --save-dev html-webpack-plugin clean-webpack-plugin<br>
+                            <br>
+                            <h5>(3)webpack配置</h5>
+                            //头部引入<br>
+                            const HtmlWebpackPlugin = require('html-webpack-plugin'); //自动生成html文件的插件<br>
+                            const CleanWebpackPlugin = require('clean-webpack-plugin'); //清除之前打包的文件<br>
+                            <br>
+                            //与output同级<br>
+                            plugins: [<br>
+                            new HtmlWebpackPlugin({template: './index.html'}),<br>
+                            new CleanWebpackPlugin(['dist']),<br>
+                            ]<br>
+                        </span>
+                    </div>
+                    <div class="alert alert-info" role="alert">
+                        <h3></h3>
+                        <span></span>
+                    </div>
+                    <div class="alert alert-warning" role="alert">
+                        <h3></h3>
+                        <span></span>
+                    </div>
+                    <div class="alert alert-danger" role="alert">
+                        <h3></h3>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+</html>
